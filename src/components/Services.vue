@@ -4,8 +4,8 @@
             <div class="div-3">Grazzi</div>
             <div class="div-4">
                 <div class="div-5"><router-link to="/">Inicio</router-link></div>
-                <div class="div-6">Servicios</div>
-                <div class="div-7">Quien Soy</div>
+                <div class="div-6"><router-link to="/services">Servicios</router-link></div>
+                <div class="div-7"><router-link to="/quiensoy">Quien Soy</router-link></div>
                 <div class="div-8">Metodología</div>
             </div>
             <div class="div-9">Contacto</div>

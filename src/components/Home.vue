@@ -1,7 +1,7 @@
 <template>
     <div class="div">
         <div class="div-2">
-            <div class="div-3">Grazzi</div>
+            <div class="div-3"><router-link to="/">Grazzi</router-link></div>
             <div class="div-4">
 
                 <div class="div-5">Inicio</div>
