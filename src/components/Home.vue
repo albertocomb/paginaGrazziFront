@@ -3,7 +3,6 @@
         <div class="div-2">
             <div class="div-3"><router-link to="/">Grazzi</router-link></div>
             <div class="div-4">
-
                 <div class="div-5">Inicio</div>
                 <div class="div-6"><router-link to="/services">Servicios</router-link></div>
                 <div class="div-7"><router-link to="/quiensoy">Quien Soy</router-link></div>
@@ -72,21 +71,12 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    align-self: start;
-    flex-grow: 1;
-    white-space: nowrap;
     font: 900 36px Inter, sans-serif;
-}
-
-@media (max-width: 991px) {
-    .div-3 {
-        white-space: initial;
-    }
 }
 
 .div-4 {
     display: flex;
-    align-items: flex-start;
+    align-items: start;
     justify-content: space-between;
     gap: 20px;
     margin: auto 0;
@@ -118,20 +108,11 @@
 
 .div-8 {
     color: #000;
-    align-self: stretch;
-    white-space: nowrap;
     font: 600 18px Inter, sans-serif;
-}
-
-@media (max-width: 991px) {
-    .div-8 {
-        white-space: initial;
-    }
 }
 
 .div-9 {
     color: #fff;
-    white-space: nowrap;
     justify-content: center;
     align-items: start;
     border-radius: 20px;
@@ -142,12 +123,6 @@
     margin-top: 5px;
     padding: 10px 13px;
     font: 700 18px Inter, sans-serif;
-}
-
-@media (max-width: 991px) {
-    .div-9 {
-        white-space: initial;
-    }
 }
 
 .div-10 {
