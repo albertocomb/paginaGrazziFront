@@ -1,8 +1,18 @@
 <template>
     <div class="div">
         <div class="div-2">
+            <!-- Mobile menu button -->
+            <div class="mobile-menu-button" @click="toggleMobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Logo Grazzi -->
             <div class="div-3"><router-link to="/">Grazzi</router-link></div>
-            <div class="div-4">
+
+            <!-- Navigation links -->
+            <div class="div-4" :class="{ 'mobile-menu-open': mobileMenuOpen }">
                 <div class="div-5">Inicio</div>
                 <div class="div-6"><router-link to="/services">Servicios</router-link></div>
                 <div class="div-7"><router-link to="/quiensoy">Quien Soy</router-link></div>
@@ -10,6 +20,15 @@
             </div>
             <div class="div-9">Contacto</div>
         </div>
+
+        <!-- Mobile menu -->
+        <div v-if="mobileMenuOpen" class="mobile-menu">
+            <div class="div-5">Inicio</div>
+            <div class="div-6"><router-link to="/services">Servicios</router-link></div>
+            <div class="div-7"><router-link to="/quiensoy">Quien Soy</router-link></div>
+            <div class="div-8">Metodología</div>
+        </div>
+
         <div class="div-10">
             <div class="div-11">
                 <div class="column">
@@ -17,14 +36,11 @@
                 </div>
                 <div class="column-2">
                     <div class="div-13">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque sit amet tellus id mi malesuada faucibus. Curabitur
-                        gravida auctor blandit. Donec sed augue laoreet, facilisis diam
-                        quis, sodales massa. Integer risus purus, scelerisque in erat eget,
-                        ornare tincidunt lacus. Morbi et velit venenatis, molestie mauris
-                        sit amet, semper neque. Ut finibus ligula dignissim odio finibus, id
-                        consequat quam euismod. Donec eleifend felis sed justo ullamcorper,
-                        non vulputate purus venenatis.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet tellus id mi
+                        malesuada faucibus. Curabitur gravida auctor blandit. Donec sed augue laoreet, facilisis diam quis,
+                        sodales massa. Integer risus purus, scelerisque in erat eget, ornare tincidunt lacus. Morbi et velit
+                        venenatis, molestie mauris sit amet, semper neque. Ut finibus ligula dignissim odio finibus, id
+                        consequat quam euismod. Donec eleifend felis sed justo ullamcorper, non vulputate purus venenatis.
                     </div>
                 </div>
             </div>
@@ -32,9 +48,9 @@
     </div>
 </template>
 
-
-
 <style scoped>
+/* Tus estilos existentes */
+
 .div {
     background-color: #fff;
     display: flex;
@@ -60,14 +76,13 @@
     .div-2 {
         max-width: 100%;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
+        /* Alinea los elementos a la izquierda */
     }
 }
 
 .div-3 {
-    background: linear-gradient(92deg,
-            #4c76c8 19.2%,
-            rgba(81, 181, 64, 0) 204.91%);
+    background: linear-gradient(92deg, #4c76c8 19.2%, rgba(81, 181, 64, 0) 204.91%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -86,7 +101,8 @@
     .div-4 {
         max-width: 100%;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
+        /* Alinea los elementos a la derecha */
     }
 }
 
@@ -116,9 +132,7 @@
     justify-content: center;
     align-items: start;
     border-radius: 20px;
-    background: linear-gradient(249deg,
-            #7e50a3 15.42%,
-            rgba(159, 59, 59, 0) 113.54%);
+    background: linear-gradient(249deg, #7e50a3 15.42%, rgba(159, 59, 59, 0) 113.54%);
     align-self: start;
     margin-top: 5px;
     padding: 10px 13px;
@@ -208,4 +222,87 @@
         margin-top: 40px;
     }
 }
+
+/* Mobile menu styles */
+
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    position: absolute;
+    top: 20px;
+    /* Ajusta la posición según tus necesidades */
+    right: 20px;
+    /* Ajusta la posición según tus necesidades */
+}
+
+.mobile-menu-open .mobile-menu {
+    display: flex;
+}
+
+@media (max-width: 991px) {
+    .div-2 {
+        flex-direction: row;
+        /* Alinea los elementos en la misma fila */
+        justify-content: space-between;
+        /* Espaciado entre los elementos */
+    }
+
+    .mobile-menu-button {
+        display: flex;
+        align-self: flex-start;
+        /* Alinea el botón a la izquierda */
+        margin-top: 10px;
+    }
+
+    .div-3 {
+        order: 1;
+        text-align: left;
+    }
+
+    .div-4 {
+        display: none;
+    }
+
+    .div-9 {
+        order: 2;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .mobile-menu-open .div-4 {
+        display: flex;
+    }
+}
 </style>
+
+<script>
+export default {
+    data() {
+        return {
+            mobileMenuOpen: false,
+        };
+    },
+    methods: {
+        toggleMobileMenu() {
+            this.mobileMenuOpen = !this.mobileMenuOpen;
+        },
+    },
+};
+</script>
