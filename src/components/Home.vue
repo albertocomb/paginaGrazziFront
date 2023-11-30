@@ -91,7 +91,7 @@
 
 .div-4 {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
     margin: auto 0;
@@ -214,6 +214,7 @@
     color: #000;
     margin-top: 31px;
     font: 400 24px Inter, sans-serif;
+    margin-left: 60px;
 }
 
 @media (max-width: 991px) {
